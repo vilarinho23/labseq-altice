@@ -1,0 +1,28 @@
+---
+openapi: 3.1.0
+tags:
+- name: Labseq API
+  description: Returns values from the labseq sequence
+paths:
+  /labseq/{n}:
+    get:
+      summary: Get Labseq value
+      description: Returns the Labseq sequence value at the given index n
+      tags:
+      - Labseq API
+      parameters:
+      - description: Index n (must be ≥ 0)
+        required: true
+        name: "n"
+        in: path
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: Labseq value retrieved successfully
+        "400":
+          description: Invalid index (must be non-negative)
+info:
+  title: backend API
+  version: 1.0.0-SNAPSHOT
