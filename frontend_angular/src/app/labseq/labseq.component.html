@@ -1,0 +1,15 @@
+<div style="padding: 2rem;">
+    <h2>Labseq Calculator</h2>
+  
+    <label for="index">Escolhe um número:</label>
+    <input type="number" id="index" [(ngModel)]="n" min="0" />
+    <button (click)="fetchValue()">Calcular</button>
+  
+    <div *ngIf="result">
+      <p><strong>Resultado:</strong> {{ result }}</p>
+    </div>
+  
+    <div *ngIf="error" style="color: red;">
+      <p><strong>Erro:</strong> {{ error }}</p>
+    </div>
+</div>

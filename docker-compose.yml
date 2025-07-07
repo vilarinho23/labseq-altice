@@ -1,0 +1,23 @@
+
+services:
+  backend:
+    build: ./backend_quarkus
+    container_name: labseq-backend
+    ports:
+      - "8080:8080"
+    networks:
+      - labseq-net
+
+  frontend:
+    build: ./frontend_angular
+    container_name: labseq-frontend
+    ports:
+      - "80:80"
+    networks:
+      - labseq-net
+    depends_on:
+      - backend
+
+networks:
+  labseq-net:
+    driver: bridge
